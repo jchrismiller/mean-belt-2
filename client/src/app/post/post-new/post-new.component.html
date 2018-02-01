@@ -1,0 +1,44 @@
+
+<div id = "new-question">
+
+<form (submit)="onSubmit(); 
+	createPost.resetForm()" 
+	#createPost="ngForm">
+<p>
+	<input 
+	name="title"
+	required
+	minlength="5"
+	maxlength="40"
+	placeholder="Title" 
+	[(ngModel)]="post.title"
+	#title="ngModel" />
+
+	{{ title.errors | json }}
+
+
+
+	<input
+	name="description"
+	required
+	minlength="10"
+	maxlength="300"
+	placeholder="Description"
+	[(ngModel)]="post.description"
+	#description="ngModel" >
+		
+	{{ description.errors | json }}
+
+	<select>
+	  <option value="user" *ngFor="let user of users">{{ user.name }}</option>
+
+	</select>
+
+	<button type="submit">
+		Add to List	
+	</button>
+</p>
+
+	
+</form>
+</div>
